@@ -160,9 +160,10 @@ Objectiu: afegir funcionalitats “de producte” sense canviar el focus (DAO/JD
   - cerca de productes per nom (nou mètode a `ProducteDAO` + implementació JDBC)
 - Regles de negoci simples:
   - evitar eliminar un producte si apareix en alguna `linia_factura` (missatge clar)
-- (Opcional avançat, només si us sobra temps) Segona implementació de `ClientDAO`:
-  - un “decorator” amb memòria cau (cache) de `llistarTots()` per practicar el patró i no repetir consultes
-  - o refactor per injectar un `ConnectionProvider` (per separar encara més la connexió del DAO)
+- Opcional avançat, només si us sobra temps
+  - Segona implementació de `ClientDAO`:
+    - un “decorator” amb memòria cau (cache) de `llistarTots()` per practicar el patró i no repetir consultes
+  - Modificar l'interfície amb SceneBuilder
 
 #### Notes per l’opció “Canviar el SGBD”
 
