@@ -1,0 +1,33 @@
+PRAGMA foreign_keys = ON;
+
+CREATE TABLE IF NOT EXISTS client (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nom TEXT NOT NULL,
+    nif TEXT NOT NULL UNIQUE,
+    email TEXT
+);
+
+CREATE TABLE IF NOT EXISTS producte (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nom TEXT NOT NULL UNIQUE,
+    preu REAL NOT NULL CHECK (preu >= 0),
+    estoc INTEGER NOT NULL DEFAULT 0 CHECK (estoc >= 0)
+);
+
+CREATE TABLE IF NOT EXISTS factura (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    client_id INTEGER NOT NULL,
+    data TEXT NOT NULL,
+    estat TEXT NOT NULL DEFAULT 'PENDENT',
+    FOREIGN KEY (client_id) REFERENCES client(id) ON DELETE RESTRICT
+);
+
+CREATE TABLE IF NOT EXISTS linia_factura (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    factura_id INTEGER NOT NULL,
+    producte_id INTEGER NOT NULL,
+    quantitat INTEGER NOT NULL CHECK (quantitat > 0),
+    preu_unitari REAL NOT NULL CHECK (preu_unitari >= 0),
+    FOREIGN KEY (factura_id) REFERENCES factura(id) ON DELETE CASCADE,
+    FOREIGN KEY (producte_id) REFERENCES producte(id) ON DELETE RESTRICT
+);
