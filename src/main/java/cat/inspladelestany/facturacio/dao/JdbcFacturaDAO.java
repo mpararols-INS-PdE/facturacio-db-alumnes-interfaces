@@ -16,7 +16,6 @@ public class JdbcFacturaDAO implements FacturaDAO {
     @Override
     public Factura crearFactura(Factura factura) throws SQLException {
         // TODO 6: inserir una factura a la taula factura.
-        // SQL: INSERT INTO factura(client_id, data, estat) VALUES (?, ?, ?)
         // Recorda recuperar la clau generada i assignar-la a factura.setId(...)
         throw new UnsupportedOperationException("TODO: implementar crearFactura(Factura)");
     }
@@ -24,7 +23,6 @@ public class JdbcFacturaDAO implements FacturaDAO {
     @Override
     public LiniaFactura afegirLinia(LiniaFactura linia) throws SQLException {
         // TODO 7: inserir una línia a la taula linia_factura.
-        // SQL: INSERT INTO linia_factura(factura_id, producte_id, quantitat, preu_unitari) VALUES (?, ?, ?, ?)
         throw new UnsupportedOperationException("TODO: implementar afegirLinia(LiniaFactura)");
     }
 
@@ -46,14 +44,12 @@ public class JdbcFacturaDAO implements FacturaDAO {
     @Override
     public double calcularTotalFactura(long facturaId) throws SQLException {
         // TODO 10: calcular el total d'una factura.
-        // SQL: SELECT COALESCE(SUM(quantitat * preu_unitari), 0) AS total FROM linia_factura WHERE factura_id = ?
         throw new UnsupportedOperationException("TODO: implementar calcularTotalFactura(long)");
     }
 
     @Override
     public boolean marcarComPagada(long facturaId) throws SQLException {
         // TODO 11: canviar l'estat d'una factura a PAGADA.
-        // SQL: UPDATE factura SET estat = 'PAGADA' WHERE id = ?
         throw new UnsupportedOperationException("TODO: implementar marcarComPagada(long)");
     }
 

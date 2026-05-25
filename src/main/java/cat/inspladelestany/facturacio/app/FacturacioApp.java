@@ -37,6 +37,9 @@ import javafx.stage.Stage;
 import java.time.LocalDate;
 
 public class FacturacioApp extends Application {
+    private final int HIGHT_RESS = 640;
+    private final int WIDTH_RESS = 860;
+
     private final ClientDAO clientDAO = new JdbcClientDAO();
     private final ProducteDAO producteDAO = new JdbcProducteDAO();
     private final FacturaDAO facturaDAO = new JdbcFacturaDAO();
@@ -58,7 +61,7 @@ public class FacturacioApp extends Application {
         BorderPane root = new BorderPane(tabPane);
         root.setPadding(new Insets(12));
 
-        Scene scene = new Scene(root, 1050, 650);
+        Scene scene = new Scene(root, WIDTH_RESS, HIGHT_RESS);
         stage.setTitle("Facturació simple - DAO i JDBC");
         stage.setScene(scene);
         stage.show();

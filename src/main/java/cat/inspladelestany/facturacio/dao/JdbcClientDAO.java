@@ -134,8 +134,7 @@ public class JdbcClientDAO implements ClientDAO {
     private Client mapClient(ResultSet rs) throws SQLException {
         // Mapatge ResultSet -> objecte de domini (1 fila del ResultSet es converteix en 1 Client)
         // S'accedeix a columnes pel seu nom (tal com surten al SELECT)
-        return new Client(
-                rs.getLong("id"),
+        return new Client(rs.getLong("id"),
                 rs.getString("nom"),
                 rs.getString("nif"),
                 rs.getString("email")
